@@ -1,0 +1,102 @@
+body {
+  background-color: #282C34;
+}
+
+nav {
+  background-color: #21252B;
+  border-right: solid 1px #1F2228;
+}
+
+/*---------------------------------------*/
+/*NAVIGATION-BAR*/
+/*---------------------------------------*/
+.folders::before {
+  content: url(img/img_extension/folder-dark.png);
+}
+
+.folder::before {
+  content: url(img/img_extension/folder-dark.png);
+}
+
+.picture::before {
+  content: url(img/img_extension/img-dark.png);
+}
+
+.text::before {
+  content: url(img/img_extension/text-dark.png);
+}
+
+.exe::before {
+  content: url(img/img_extension/exe-dark.png);
+}
+
+ul a:hover {
+  color: #829A9C;
+}
+
+/*---------------------------------------*/
+/*MAIN*/
+/*---------------------------------------*/
+#home {
+  background: url(img/img_background/me-dark.png) no-repeat right;
+  background-size: contain;
+}
+
+#draw_home {
+  background: url(img/img_background/draws-dark.png) no-repeat right;
+  background-size: contain;
+}
+
+/*---------------------------------------*/
+/*GENERAL*/
+/*---------------------------------------*/
+article, footer {
+  background-color: #282C34;
+  border-top: solid 1px #1F2228;
+}
+
+/*---------------------------------------*/
+/*TXT*/
+/*---------------------------------------*/
+
+a, h1, h3 {
+  color: #e26457;
+}
+
+#library a:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+h1 span {
+  color: #D75548;
+}
+
+
+h2, h4 {
+  color: #829A9C;
+}
+
+h2 span, footer h3 {
+  color: #798383;
+}
+
+
+/*---------------------------------------*/
+/*EXTRA*/
+/*---------------------------------------*/
+.extra {
+  background-color: #21252B;
+}
+
+.extra::before {
+  content: url(img/img_extension/more-dark.png);
+}
+
+.extra:hover .none {
+  color: #2b2e32;
+}
+
+aside {
+    margin-top: 10px;
+    margin-left: 50px;
+}

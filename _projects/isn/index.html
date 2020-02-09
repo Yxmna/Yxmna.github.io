@@ -1,0 +1,1489 @@
+<html lang="fr" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="de.css">
+  <title></title>
+</head>
+
+<body>
+
+  <nav>
+
+    <ul>
+      <li id="n1" onclick="next(1);" class="selected"> <a href="#1">Présentation</a> </li>
+      <li id="n2" onclick="next(2);"> <a href="#2">Répartition</a> </li>
+      <li id="n3" onclick="next(3);"> <a href="#3">Résultat</a> </li>
+      <li id="n4" onclick="next(4);"><a href="#4">Langage</a></li>
+      <li id="n5" onclick="next(5);"> <a href="#5">Mon rôle</a> </li>
+      <li id="n6" onclick="next(6);"> <a href="#6">Pacman</a> </li>
+      <li id="n7" onclick="next(7);"><a href="#7">La map</a></li>
+      <li id="n8" onclick="next(8);"><a href="#8">Bilan</a></li>
+      <li id="n9" onclick="next(9);"><a href="#9">Source</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+
+
+    <article id="1">
+      <h1>MyArcade</h1>
+      <h2 class="extra">Projet par <span id="p"> {//, //, //}</span></h2>
+      <ul class="list">
+        <li><span onclick="aside(1);"> 5 jeux</span> d’arcades</li>
+        <li>Des portes d'accès</li>
+        <li>Un même personnage</li>
+        <li>Un seul objectif</li>
+      </ul>
+    </article>
+
+
+
+
+    <article id="2">
+      <h1>Répartition des tâches</h1>
+      <ul class="list">
+        <li>Chacun sur un jeu</li>
+        <li>Communication sur <span onclick="aside(2);">discord</span></li>
+      </ul>
+    </article>
+
+
+
+
+
+    <article id="3">
+      <h1>Résultat du projet</h1>
+      <ul class="list">
+        <li>Seulement <span onclick="aside(3)">4 jeux fini</span></li>
+        <li>Dont 1 hors sujet</li>
+      </ul>
+    </article>
+
+
+
+
+
+    <article id="4">
+      <h1>Comment on s'est pris ?</h1>
+      <ul class="list">
+        <li>Utilisation de python avec <span onclick="aside(4)">PyScripter</span></li>
+        <li>Support USB</li>
+      </ul>
+    </article>
+
+
+
+    <article id="5">
+      <h1>Mon rôle</h1>
+      <ul class="list">
+        <li>Création de <span onclick="aside(5)">diverses fonctions</span></li>
+        <li>Création du Pacman</li>
+      </ul>
+      </div>
+    </article>
+
+    <article id="6">
+      <h1>Pacman</h1>
+      <ul class="list">
+        <li> <span onclick="aside(6)">Pacman</span> </li>
+        <li>Difficulté: les <span onclick="aside(7)">classes</span></li>
+        <li>Création d'<span onclick="aside(8)">objets</span></li>
+        <li><span onclick="aside(9)">Utilisation</span> des objets</li>
+      </ul>
+      </div>
+    </article>
+
+
+
+
+    <article id="7">
+      <h1>La map</h1>
+      <ul class="list">
+        <li><span onclick="aside(10)">La boucle</span></li>
+        <li>La fonction <span onclick="aside(11)">map</span> </li>
+      </ul>
+      </div>
+    </article>
+
+
+
+
+
+    <article id="8">
+      <h1>Bilan</h1>
+      <ul class="list">
+        <li>Amélioration possible: meilleure reproduction des jeux, quelques effets et amélioration graphique</li>
+        <li>Importances en travail en équipe: Bonnes répartitions des tâches et un bon support de communication</li>
+        <li>Le travail seul</li>
+      </ul>
+      </div>
+    </article>
+
+
+
+    <article id="9">
+      <h1>Les sources</h1>
+      <ul class="list">
+        <li> <span onclick="aside(12)"> Code</span> source du projet</li>
+        <li>http://www.universal-soundbank.com/jeux-videos.htm</li>
+      </ul>
+      </div>
+    </article>
+
+
+
+
+
+
+  </main>
+
+  <aside>
+    <img src="file/myarcade-projet.png" id="i1">
+    <img src="file/discord3.png" id="i2">
+    <img src="file/pyscripter.png" id="i4">
+    <img src="file/fonctionpost.png" id="i5">
+    <img src="file/pm.png" id="i6">
+    <img src="file/class2.png" id="i7">
+    <img src="file/coincreate.png" id="i8">
+    <img src="file/coindraw.png" id="i9">
+    <img src="file/boucle5.png" id="i10">
+    <img src="file/mapdef1.png" id="i11">
+    <iframe id="v" width="800" height="800" frameborder="0" src="https://www.youtube.com/embed/fw6Wixz9u_Y"></iframe>
+
+
+    <div id="code">
+      <h3>
+
+
+        import pygame</br>
+        import sys</br>
+        import os</br>
+        from random import randint</br>
+        </br>
+        </br>
+        #--------------------------------------- Les classes</br>
+        </br>
+        #//////////// PACMAN</br>
+        </br>
+        class Coin():</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;def __init__(self, x, y, super): #Création des valeurs par défault</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.x = x #Le x donné devient le x de CE coin</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.y = y #//</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.get = False #Le coin pas encore attrapé</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.super = super</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;def draw(self): #On dessine le coin</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;global score, u</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if self.get == False: #Si pas attrapé: on dessine</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if self.super: #si le coin est un super coin</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pygame.draw.ellipse(game,purple2,[self.x,self.y,21,23])</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pygame.draw.ellipse(game,purple1,[self.x,self.y,20,22])</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pygame.draw.ellipse(game,purple,[self.x,self.y,16,20])</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else: #si le coin est un simple coin</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pygame.draw.ellipse(game,yellow3,[self.x,self.y,21,23])</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pygame.draw.ellipse(game,yellow2,[self.x,self.y,20,22])</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pygame.draw.ellipse(game,yellow,[self.x,self.y,16,20])</br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if self.y-size&lt;y_pos&lt;self.y+20 and self.x-size&lt;x_pos&lt;self.x+18:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#si perso se trouve sur le coin:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if self.super: #si le coin est un super coin</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;score += 10 #Il donne 10 points</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else: #si le coin est un simple coin</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;score += 1 #Il donne un point</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;son.play() #Activation du son du coin</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.get = True #Le coin est attrapé</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;u = 0</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return score</br>
+        </br>
+        </br>
+        class Ghost():</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;def __init__(self, x, y):</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;global speed_ghost</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.x = x</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.y = y</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.x_move = 0</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.y_move = -speed_ghost</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.d = 0</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.check = True</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;def ia(self):</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;global size</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.x = self.x + self.x_move</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.y = self.y + self.y_move</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;def draw(self):</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if self.d == 0:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.x_move = 0</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.y_move = -speed_ghost</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;game.blit(ghostpic[0], (self.x,self.y))</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif self.d == 1:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.x_move = speed_ghost</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.y_move = 0</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;game.blit(ghostpic[1], (self.x,self.y))</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif self.d == 2:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.x_move = 0</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.y_move = speed_ghost</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;game.blit(ghostpic[2], (self.x,self.y))</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif self.d ==3:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.x_move = -speed_ghost</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.y_move = 0</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;game.blit(ghostpic[3], (self.x,self.y))</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if self.y-size&lt;y_pos&lt;self.y+40 and self.x-size&lt;x_pos&lt;self.x+40: #si perso se trouve sur le ghost</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;game_over()</br>
+        </br>
+        </br>
+        </br>
+        </br>
+        #--------------------------------------- Les variables</br>
+        </br>
+        #//////////// ALL</br>
+        b = 0</br>
+        c = True</br>
+        score = 0 #Le score initial</br>
+        size = 40 #Hauteur et largeur du personnage</br>
+        sizewin = (800, 800) #Hauteur et largeur du jeux</br>
+        gameover = False #Si = True: jeux fini</br>
+        pygame.init()</br>
+        game = pygame.display.set_mode(sizewin)</br>
+        clock = pygame.time.Clock()</br>
+        keys = 2 #La direction du perssage</br>
+        x_pos=388 #Placement x initial du personnage</br>
+        y_pos=350 #Placement y initial du personnage</br>
+        white = (255, 255, 255) #Couleur</br>
+        light = (125, 125, 125) #Couleur</br>
+        black = (0, 0, 0)</br>
+        red = (231,76,60)</br>
+        yellow = (245, 229, 27)</br>
+        yellow2 = (247, 144, 24)</br>
+        yellow3 = (35, 18, 5)</br>
+        yellopm = (255, 255, 1)</br>
+        purple = (186, 60, 255)</br>
+        purple1 = (118, 8, 201)</br>
+        purple2 = (65, 48, 82)</br>
+        blue = (34, 167, 240)</br>
+        gray = (44, 47, 51)</br>
+        gray2 = (27, 23, 26)</br>
+        green = (0, 153, 0)</br>
+        x_move = y_move = 0 #Les futures déplacement du personnage</br>
+        speed = 2 #Vitesse du personnage</br>
+        speed_ghost = 3</br>
+        o = 0 #</br>
+        act = 0</br>
+        u = 41</br>
+        t = 0</br>
+        son = pygame.mixer.Sound("file/coin.mp3")</br>
+        v = False</br>
+        f = False</br>
+        </br>
+        #//////////// PACMAN</br>
+        playerl = [pygame.image.load("file/pc1.PNG"), pygame.image.load("file/pcl2.PNG"), pygame.image.load("file/pcl3.PNG"), pygame.image.load("file/pcl4.PNG")]</br>
+        playeru = [pygame.image.load("file/pc1.PNG"), pygame.image.load("file/pcu2.PNG"), pygame.image.load("file/pcu3.PNG"), pygame.image.load("file/pcu4.PNG")]</br>
+        playerr = [pygame.image.load("file/pc1.PNG"), pygame.image.load("file/pcr2.PNG"), pygame.image.load("file/pcr3.PNG"), pygame.image.load("file/pcr4.PNG")]</br>
+        playerd = [pygame.image.load("file/pc1.PNG"), pygame.image.load("file/pcd2.PNG"), pygame.image.load("file/pcd3.PNG"), pygame.image.load("file/pcd4.PNG")]</br>
+        ghostpic = [pygame.image.load("file/f0.PNG"), pygame.image.load("file/f1.PNG"), pygame.image.load("file/f2.PNG"), pygame.image.load("file/f3.PNG"),]</br>
+        </br>
+        </br>
+        </br>
+        coin1 = Coin(50, 50, False)</br>
+        coin2 = Coin(106, 50, False)</br>
+        coin3 = Coin(162, 50, False)</br>
+        coin4 = Coin(218, 50, False)</br>
+        coin5 = Coin(274, 50, False)</br>
+        coin6 = Coin(330, 50, False)</br>
+        coin7 = Coin(386, 50, False)</br>
+        coin8 = Coin(50, 100, False)</br>
+        coin9 = Coin(50, 150, False)</br>
+        coin10 = Coin(50, 200, False)</br>
+        coin11 = Coin(50, 250, False)</br>
+        coin12 = Coin(442, 50, False)</br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        coin13 = Coin(498, 50, False)</br>
+        coin14 = Coin(554, 50, False)</br>
+        coin15 = Coin(610, 50, False)</br>
+        coin16 = Coin(666, 50, False)</br>
+        coin17 = Coin(730, 50, False)</br>
+        coin18 = Coin(164, 200, False)</br>
+        coin19 = Coin(107, 250, False)</br>
+        coin20 = Coin(164, 250, False)</br>
+        coin21 = Coin(221, 250, False)</br>
+        coin22 = Coin(278, 250, False)</br>
+        coin23 = Coin(335, 250, False)</br>
+        coin24 = Coin(392, 250, False)</br>
+        coin25 = Coin(449, 250, False)</br>
+        coin26 = Coin(506, 250, False)</br>
+        coin27 = Coin(563, 250, False)</br>
+        coin28 = Coin(620, 250, False)</br>
+        coin29 = Coin(677, 250, False)</br>
+        coin30 = Coin(620, 200, False)</br>
+        coin31 = Coin(730, 250, False)</br>
+        coin32 = Coin(730, 100, False)</br>
+        coin33 = Coin(730, 150, False)</br>
+        coin34 = Coin(730, 200, False)</br>
+        coin35 = Coin(164, 150, False)</br>
+        coin36 = Coin(219, 150, False)</br>
+        coin37 = Coin(274, 150, False)</br>
+        coin38 = Coin(330, 150, False)</br>
+        coin41 = Coin(442, 150, False)</br>
+        coin42 = Coin(501, 150, False)</br>
+        coin43 = Coin(560, 150, False)</br>
+        coin44 = Coin(620, 150, False)</br>
+        coin40 = Coin(50, 420, False)</br>
+        coin39 = Coin(50, 470, False)</br>
+        coin45 = Coin(50, 520, False)</br>
+        coin46 = Coin(50, 570, False)</br>
+        coin47 = Coin(50, 620, False)</br>
+        coin48 = Coin(50, 670, False)</br>
+        coin49 = Coin(50, 720, False)</br>
+        coin50 = Coin(100, 720, False)</br>
+        coin51 = Coin(150, 720, False)</br>
+        coin52 = Coin(150, 665, False)</br>
+        coin53 = Coin(150, 610, False)</br>
+        coin54 = Coin(150, 559, False)</br>
+        coin55 = Coin(150, 502, False)</br>
+        coin56 = Coin(150, 450, False)</br>
+        coin57 = Coin(210, 450, False)</br>
+        coin58 = Coin(270, 450, False)</br>
+        coin59 = Coin(330, 450, False)</br>
+        coin60 = Coin(390, 450, False)</br>
+        coin61 = Coin(450, 450, False)</br>
+        coin62 = Coin(510, 450, False)</br>
+        coin63 = Coin(570, 450, False)</br>
+        coin64 = Coin(630, 450, False)</br>
+        coin65 = Coin(630, 500, False)</br>
+        coin66 = Coin(630, 555, False)</br>
+        coin67 = Coin(630, 610, False)</br>
+        coin68 = Coin(630, 665, False)</br>
+        coin69 = Coin(630, 720, False)</br>
+        coin70 = Coin(680, 720, False)</br>
+        coin71 = Coin(730, 720, False)</br>
+        coin72 = Coin(730, 670, False)</br>
+        coin73 = Coin(730, 620, False)</br>
+        coin74 = Coin(730, 570, False)</br>
+        coin75 = Coin(730, 520, False)</br>
+        coin76 = Coin(730, 470, False)</br>
+        coin77 = Coin(730, 420, False)</br>
+        coin78 = Coin(390, 500, False)</br>
+        coin79 = Coin(390, 550, False)</br>
+        coin80 = Coin(458, 550, False)</br>
+        coin81 = Coin(526, 550, False)</br>
+        coin82 = Coin(526, 600, False)</br>
+        coin83 = Coin(526, 665, False)</br>
+        coin84 = Coin(526, 730, False)</br>
+        coin85 = Coin(322, 550, False)</br>
+        coin86 = Coin(254, 550, False)</br>
+        coin87 = Coin(254, 600, False)</br>
+        coin88 = Coin(254, 665, False)</br>
+        coin89 = Coin(254, 730, False)</br>
+        coin90 = Coin(390, 665, False)</br>
+        coin91 = Coin(390, 730, False)</br>
+        coin92 = Coin(322,730, False)</br>
+        coin93 = Coin(458, 730, False)</br>
+        coin94 = Coin(442,100, False)</br>
+        coin95 = Coin(330, 100, False)</br>
+        coin96 = Coin(278, 315, False)</br>
+        coin97 = Coin(278, 380, False)</br>
+        coin98 = Coin(506, 315, False)</br>
+        coin99 = Coin(506, 380, False)</br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        coin100 = Coin(630, 625, False)</br>
+        coin101 = Coin(680, 625, False)</br>
+        coin102 = Coin(730, 625, False)</br>
+        </br>
+        coin103 = Coin(480, 525, False)</br>
+        coin104 = Coin(530, 525, False)</br>
+        </br>
+        coin105 = Coin(245, 625, False)</br>
+        coin106 = Coin(195, 625, False)</br>
+        coin107 = Coin(145, 625, False)</br>
+        </br>
+        </br>
+        coin108 = Coin(190, 325, False)</br>
+        coin109 = Coin(240, 325, True)</br>
+        coin110 = Coin(290, 325, False)</br>
+        </br>
+        </br>
+        coin111 = Coin(575, 150, False)</br>
+        coin112 = Coin(625, 150, True)</br>
+        coin113 = Coin(675, 150, False)</br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        ghost1 = Ghost(375, 300)</br>
+        ghost2 = Ghost(378, 640)</br>
+        </br>
+        #//////////// SNAKE</br>
+        x_coin = randint(100,700)</br>
+        y_coin = randint(100,700)</br>
+        </br>
+        snake_y = [-60, 2, 3, 4, 5, 6, 7, 8, 9, 10]</br>
+        snake_x = [400,2, 3, 4, 5, 6 ,7, 8, 9, 10]</br>
+        for i in range(1, 9):</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;snake_y[i]= snake_y[i-1]-size</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;snake_x[i]= snake_x[i-1]</br>
+        </br>
+        snake_coor = [(snake_x,snake_y)]</br>
+        w=0</br>
+        </br>
+        </br>
+        </br>
+        </br>
+        #//////////// MARIO</br>
+        jumping = False</br>
+        maxjump = 0</br>
+        isjump = 0</br>
+        isgravity = True</br>
+        canjump = True</br>
+        </br>
+        </br>
+        #//////////// DONKEYKONG</br>
+        </br>
+        bleum = (22, 45, 97)</br>
+        </br>
+        #--------------------------------------- Les définitions</br>
+        </br>
+        #//////////// ALL</br>
+        </br>
+        </br>
+        def mapping():</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;global x_pos, y_pos, act, snake_y, speed, x_move, keys, w, y_move</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if y_pos&gt;800 and act == 0:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snake_y[0] = 0</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i = len(snake_y)-1</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;speed = 5</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y_move = speed</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while w&lt;i:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snake_y[w] = 0</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;w+=1</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;act = 1</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if snake_y[0]&lt;0 and act == 1:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y_pos = 800</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;speed = 2</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y_move = -speed</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;keys = 2</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;act = 0</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if x_pos&lt;0 and act ==0:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x_pos = 800-size</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;speed = 5</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;act=2</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if x_pos&gt;800-size and act==2:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x_pos = 5</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;speed = 2</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x_move = speed</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;keys = 3</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;act=0</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if y_pos&gt;800 and act==2:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;game_over()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if y_pos&lt;0 and act == 0:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;act = 3</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y_pos = 800-size</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if y_pos&gt;800-size and act == 3:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;act = 0</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y_pos = 0</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;return act, speed, x_pos, y_pos, x_move, keys, y_move</br>
+        </br>
+        def scoredyn():</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;#Création du score</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;global score, x_pos, y_pos, u, color, act #On va chercher le score</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;font=pygame.font.Font(None,30) #Création de la police</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;scoretext=font.render("+ " + str(score),True,color) #Création du nouveau texte</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if act != 1 :</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;game.blit(scoretext, (x_pos + 40, y_pos - 10 - (u/2))) #Affichage du texte</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;else:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;game.blit(scoretext, (snake_x[0] + 40, snake_y[0] - 10 - (u/2))) #Affichage du texte</br>
+        </br>
+        def wall_pm(x,y,sx,sy):</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;global x_pos, y_pos, size</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;pygame.draw.rect(game, gray2, [x,y,sx,sy])</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if y-size&lt;y_pos&lt;y+sy and x-size&lt;x_pos&lt;x+sx:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if y_pos&lt;y and x-size&lt;=x_pos&lt;=x+sx:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y_pos = y_pos-y_move</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if y_pos&gt;y-size and x-size&lt;=x_pos&lt;=x+sx:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y_pos = y_pos-y_move</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if x_pos&lt;x and y-size&lt;=y_pos&lt;=y+sy:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x_pos = x_pos-x_move</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if x_pos&gt;x+sx-size and y-size&lt;=y_pos&lt;=y+sy:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x_pos = x_pos-x_move</br>
+        </br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if y-size-10&lt;ghost1.y&lt;y+sy+10 and x-size-10&lt;ghost1.x&lt;x+sx+10:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost1.y&lt;y and x-size&lt;=ghost1.x&lt;=x+sx:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.y = ghost1.y-ghost1.y_move</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.d = randint(1,2)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost1.d == 2:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.d = 3</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost1.y&gt;y-size and x-size&lt;=ghost1.x&lt;=x+sx:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.y = ghost1.y-ghost1.y_move</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.d = randint(1,2)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost1.d == 2:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.d = 3</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost1.x&lt;x and y-size&lt;=ghost1.y&lt;=y+sy:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.x = ghost1.x-ghost1.x_move</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.d = randint(0,1)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost1.d == 1:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.d = 2</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost1.x&gt;x+sx-size and y-size&lt;=ghost1.y&lt;=y+sy:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.x = ghost1.x-ghost1.x_move</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.d = randint(0,1)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost1.d == 1:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.d = 2</br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;elif 135&lt;ghost1.x&lt;145 and 227&lt;ghost1.y&lt;260:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost1.check == True:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost1.d == 3:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.d = randint(0,1)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost1.d == 1:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.d = 3</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost1.d == 1:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.d = randint(0,1)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost1.d == 2:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.check == False</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.d = randint(0,1)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost1.d == 0:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.d = 3</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.check = False</br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;elif 260&lt;ghost1.x&lt;266 and 230&lt;ghost1.y&lt;260:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost1.check == True:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost1.d == 1:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.d = randint(1,2)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost1.d == 3:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.d = randint(2,3)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.check = False</br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;elif 490&lt;ghost1.x&lt;500 and 227&lt;ghost1.y&lt;260:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost1.check == True:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost1.d == 1:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.d = randint(1,2)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost1.d == 3:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.d = randint(2,3)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.check = False</br>
+        </br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;elif 620&lt;ghost1.x&lt;630 and 227&lt;ghost1.y&lt;260:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost1.check == True:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost1.d == 1:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.d = randint(0,1)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost1.d == 3:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.d = randint(2,3)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost1.d == 2:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.d = 0</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.check = False</br>
+        </br>
+        </br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;elif 426&lt;ghost1.x&lt;446 and 30&lt;ghost1.y&lt;50:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost1.check == True:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost1.d == 1:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.d = randint(1,2)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost1.d == 3:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.d = randint(2,3)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.check = False</br>
+        </br>
+        </br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;elif 316&lt;ghost1.x&lt;338 and 30&lt;ghost1.y&lt;50:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost1.check == True:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost1.d == 1:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.d = randint(1,2)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost1.d == 3:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.d = randint(2,3)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.check = False</br>
+        </br>
+        </br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;elif 364&lt;ghost1.x&lt;396 and 430&lt;ghost1.y&lt;454:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost1.check == True:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost1.d == 1:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.d = randint(1,2)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost1.d == 3:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.d = randint(2,3)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.check = False</br>
+        </br>
+        </br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;elif 364&lt;ghost1.x&lt;396 and 530&lt;ghost1.y&lt;556:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost1.check == True:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost1.d == 1:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.d = randint(0,1)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost1.d == 3:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.d = randint(2,3)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost1.d == 2:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.d = 0</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.check = False</br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;elif 26&lt;ghost1.x&lt;60 and 320&lt;ghost1.y&lt;350:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost1.check == True:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.d = randint(1,2)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.check = False</br>
+        </br>
+        </br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;elif 700&lt;ghost1.x&lt;734 and 320&lt;ghost1.y&lt;350:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost1.check == True:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.d = randint(2,3)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.check = False</br>
+        </br>
+        </br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;elif 260&lt;ghost1.x&lt;266 and 432&lt;ghost1.y&lt;450:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost1.check == True:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost1.d == 1:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.d = randint(0,1)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost1.d == 3:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.d = randint(2,3)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost1.d == 2:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.d = 0</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.check = False</br>
+        </br>
+        </br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;elif 490&lt;ghost1.x&lt;500 and 432&lt;ghost1.y&lt;450:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost1.check == True:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost1.d == 1:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.d = randint(0,1)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost1.d == 3:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.d = randint(2,3)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost1.d == 2:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.d = 0</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.check = False</br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;else:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.check = True</br>
+        </br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if y-size-10&lt;ghost2.y&lt;y+sy+10 and x-size-10&lt;ghost2.x&lt;x+sx+10:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost2.y&lt;y and x-size&lt;=ghost2.x&lt;=x+sx:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.y = ghost2.y-ghost2.y_move</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.d = randint(1,2)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost2.d == 2:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.d = 3</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost2.y&gt;y-size and x-size&lt;=ghost2.x&lt;=x+sx:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.y = ghost2.y-ghost2.y_move</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.d = randint(1,2)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost2.d == 2:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.d = 3</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost2.x&lt;x and y-size&lt;=ghost2.y&lt;=y+sy:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.x = ghost2.x-ghost2.x_move</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.d = randint(0,1)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost2.d == 1:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.d = 2</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost2.x&gt;x+sx-size and y-size&lt;=ghost2.y&lt;=y+sy:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.x = ghost2.x-ghost2.x_move</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.d = randint(0,1)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost2.d == 1:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.d = 2</br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;elif 135&lt;ghost2.x&lt;145 and 227&lt;ghost2.y&lt;260:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost2.check == True:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost2.d == 3:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.d = randint(0,1)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost2.d == 1:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.d = 3</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost2.d == 1:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.d = randint(0,1)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost2.d == 2:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.check == False</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.d = randint(0,1)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost2.d == 0:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.d = 3</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.check = False</br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;elif 260&lt;ghost2.x&lt;266 and 230&lt;ghost2.y&lt;260:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost2.check == True:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost2.d == 1:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.d = randint(1,2)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost2.d == 3:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.d = randint(2,3)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.check = False</br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;elif 490&lt;ghost2.x&lt;500 and 227&lt;ghost2.y&lt;260:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost2.check == True:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost2.d == 1:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.d = randint(1,2)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost2.d == 3:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.d = randint(2,3)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.check = False</br>
+        </br>
+        </br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;elif 620&lt;ghost2.x&lt;630 and 227&lt;ghost2.y&lt;260:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost2.check == True:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost2.d == 1:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.d = randint(0,1)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost2.d == 3:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.d = randint(2,3)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost2.d == 2:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.d = 0</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.check = False</br>
+        </br>
+        </br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;elif 426&lt;ghost2.x&lt;446 and 30&lt;ghost2.y&lt;50:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost2.check == True:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost2.d == 1:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.d = randint(1,2)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost2.d == 3:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.d = randint(2,3)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.check = False</br>
+        </br>
+        </br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;elif 316&lt;ghost2.x&lt;338 and 30&lt;ghost2.y&lt;50:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost2.check == True:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost2.d == 1:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.d = randint(1,2)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost2.d == 3:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.d = randint(2,3)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.check = False</br>
+        </br>
+        </br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;elif 364&lt;ghost2.x&lt;396 and 430&lt;ghost2.y&lt;454:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost2.check == True:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost2.d == 1:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.d = randint(1,2)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost2.d == 3:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.d = randint(2,3)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.check = False</br>
+        </br>
+        </br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;elif 364&lt;ghost2.x&lt;396 and 530&lt;ghost2.y&lt;556:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost2.check == True:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost2.d == 1:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.d = randint(0,1)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost2.d == 3:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.d = randint(2,3)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost2.d == 2:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.d = 0</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.check = False</br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;elif 26&lt;ghost2.x&lt;60 and 320&lt;ghost2.y&lt;350:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost2.check == True:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.d = randint(1,2)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.check = False</br>
+        </br>
+        </br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;elif 700&lt;ghost2.x&lt;734 and 320&lt;ghost2.y&lt;350:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost2.check == True:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.d = randint(2,3)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.check = False</br>
+        </br>
+        </br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;elif 260&lt;ghost2.x&lt;266 and 432&lt;ghost2.y&lt;450:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost2.check == True:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost2.d == 1:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.d = randint(0,1)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost2.d == 3:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.d = randint(2,3)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost2.d == 2:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.d = 0</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.check = False</br>
+        </br>
+        </br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;elif 490&lt;ghost2.x&lt;500 and 432&lt;ghost2.y&lt;450:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost2.check == True:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost2.d == 1:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.d = randint(0,1)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost2.d == 3:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.d = randint(2,3)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ghost2.d == 2:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.d = 0</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.check = False</br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;else:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.check = True</br>
+        </br>
+        </br>
+        </br>
+        def co():</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;global x_pos, y_pos #On récupere les co</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;font=pygame.font.Font(None,30) #Création de la police</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;co=font.render("x: " + str(x_pos) + ", y :" + str(y_pos) ,True,(0,0,0)) #Création du nouveau texte</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;game.blit(co, (100, 125)) #Affichage du texte</br>
+        </br>
+        </br>
+        def game_over():</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;global act</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;act = 5</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;return act</br>
+        </br>
+        def gotxt():</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;font1=pygame.font.Font(None,125) #Création de la police</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;font2=pygame.font.Font(None,120) #Création de la police</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;co1=font1.render("GAME OVER" ,True,black) #Création du nouveau texte</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;co2=font2.render("GAME OVER" ,True,yellow) #Création du nouveau texte</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;pygame.draw.rect(game,red,[48, 298, 704, 154])</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;pygame.draw.rect(game,black,[50, 300, 700, 150])</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;game.blit(co1, (144, 280)) #Affichage du texte</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;game.blit(co2, (150, 285)) #Affichage du texte</br>
+        </br>
+        def goscore():</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;global score, b</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;font1=pygame.font.Font(None,40) #Création de la police</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;font2=pygame.font.Font(None,25) #Création de la police</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;txt=font1.render("score: " + str(score) ,True,white) #Création du nouveau texte</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if b&lt;25:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;button=font2.render("press ENTER to restart..",True,black) #Création du nouveau texte</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;game.blit(button, (300, 420)) #Affichage du texte</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b += 1</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;elif 50&gt;b&gt;=25:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;button=font2.render("press ENTER to restart..",True,light) #Création du nouveau texte</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;game.blit(button, (300, 420)) #Affichage du texte</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b += 1</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;elif b&gt;=50:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b = 0</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;game.blit(txt, (322, 375)) #Affichage du texte</br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;coin = Coin(452, 375, False)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;coin.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if event.type == pygame.KEYDOWN: #Lorsque touche enfoncé</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if event.key == pygame.K_RETURN:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;os.execl(sys.executable, os.path.abspath(__file__), *sys.argv)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;return b</br>
+        </br>
+        #//////////// PACMAN</br>
+        </br>
+        def perso(x,y, o):</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;global p, keys</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;#Création du personnage:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if keys == 1:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;game.blit(playerl[o], (x,y))</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if keys == 2:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;game.blit(playeru[o], (x,y))</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if keys == 3:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;game.blit(playerr[o], (x,y))</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if keys == 4:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;game.blit(playerd[o], (x,y))</br>
+        </br>
+        def snake_n_pacman_move(): #déplacement du perso</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;global y_move, x_move, speed, keys</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if event.type == pygame.KEYDOWN: #Lorsque touche enfoncé</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if event.key == pygame.K_UP and keys!=4:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x_move = 0</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y_move = -speed</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;keys = 2</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if event.key == pygame.K_DOWN and keys!=2:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x_move = 0</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y_move = speed</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;keys = 4</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if event.key == pygame.K_LEFT and keys!=3:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y_move = 0</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x_move = -speed</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;keys = 1</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if event.key == pygame.K_RIGHT and keys!=1:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y_move = 0</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x_move = speed</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;keys = 3</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if event.key == pygame.K_s :</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;game_over()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;return keys</br>
+        </br>
+        #//////////// SNAKE</br>
+        </br>
+        def coin_snake():#dessin coin</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;global x_coin, y_coin,score, u</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;pygame.draw.ellipse(game,yellow3,[x_coin,y_coin,21,23])</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;pygame.draw.ellipse(game,yellow2,[x_coin,y_coin,20,22]) #Partie foncé</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;pygame.draw.ellipse(game,yellow,[x_coin,y_coin,16,20])</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if y_coin-size&lt;snake_y[0]&lt;y_coin+20 and x_coin-size&lt;snake_x[0]&lt;x_coin+18:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x_coin = randint(100,700)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y_coin = randint(100,700)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;score = score+1</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;u = 0</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;son.play()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Alonger le snake</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snake_x.extend((0, 0, 0))</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snake_y.extend((0, 0, 0))</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return score</br>
+        </br>
+        def wall_snake(x,y,sx,sy):</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;global x_pos, y_pos, size,t</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;pygame.draw.rect(game, gray2, [x,y,sx,sy])</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if y-size&lt;snake_y[0]&lt;y+sy and x-size&lt;snake_x[0]&lt;x+sx:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;game_over()</br>
+        </br>
+        def perso_snake(x,y, o):</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;l = len(snake_x)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;for i in range(l-1):</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if i &lt; 3:</br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if keys == 1:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;game.blit(playerl[o], (x,y))</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if keys == 2:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;game.blit(playeru[o], (x,y))</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if keys == 3:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;game.blit(playerr[o], (x,y))</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if keys == 4:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;game.blit(playerd[o], (x,y))</br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif i &gt; l-5:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pygame.draw.ellipse(game,yellopm,[snake_x[i],snake_y[i],size,size])</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pygame.draw.rect(game,yellopm,[snake_x[i],snake_y[i],size,size])</br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if snake_x[0]==snake_x[i] and snake_y[0]==snake_y[i] and i&gt;1 and snake_y[0]&gt;60:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;game_over()</br>
+        </br>
+        #//////////// MARIO</br>
+        </br>
+        def mario_move(): #déplacement du perso</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;global y_move, x_move, speed, isjump, keys, canjump</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if event.type == pygame.KEYDOWN: #Lorsque touche enfoncé</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if event.key == pygame.K_LEFT:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x_move = -speed</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;keys = 1</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if event.key == pygame.K_RIGHT:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x_move = speed</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;keys = 3</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if event.key == pygame.K_SPACE:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if canjump:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;isjump = 2</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return isjump, keys</br>
+        </br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if event.type == pygame.KEYUP: #Lorsque touche relaché</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if event.key == pygame.K_LEFT:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x_move = 0</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if event.key == pygame.K_RIGHT:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x_move = 0</br>
+        </br>
+        </br>
+        def wall_mario(x,y,sx,sy):</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;global x_pos, y_pos, size, y_move, canjump</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;pygame.draw.rect(game, gray2, [x,y,sx,sy])</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if y-size&lt;y_pos&lt;y+sy and x-size&lt;x_pos&lt;x+sx:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if y_pos&lt;y and x-size&lt;=x_pos&lt;=x+sx:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y_pos = y_pos-y_move</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if y_pos&gt;y-size and x-size&lt;=x_pos&lt;=x+sx:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y_pos = y_pos-y_move</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;canjump = True</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y_move = 0</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return canjump</br>
+        </br>
+        def gravity():</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;global y_move, isgravity</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if isgravity:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y_move += 1</br>
+        </br>
+        def jump():</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;global y_move, maxjump, isjump, isgravity, canjump</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;canjump = False</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if isjump&gt;maxjump:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;isgravity = False</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y_move = -13</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;isjump -= 1</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return canjump</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;else:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;isgravity = True</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;return isjump, isgravity, canjump</br>
+        </br>
+        #//////////// DONKEYKONG</br>
+        </br>
+        </br>
+        def wall(x,y,sx,sy):# dessin des wall</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;global x_coord, y_coord</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;pygame.draw.rect(game, (0, 0, 0), [x,y,sx,sy])</br>
+        </br>
+        </br>
+        </br>
+        </br>
+        def DKm():#déplacement du perso</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;global y_move, x_move, speed, keys</br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if event.type == pygame.KEYDOWN: #Lorsque touche enfoncé</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if event.key == pygame.K_UP:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y_move = -speed</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;keys = 2</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if event.key == pygame.K_DOWN:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y_move = speed</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;keys = 4</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if event.key == pygame.K_LEFT:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x_move = -speed</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;keys = 1</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if event.key == pygame.K_RIGHT:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x_move = speed</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;keys = 3</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return keys</br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if event.type == pygame.KEYUP: #Lorsque touche relaché</br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if event.key == pygame.K_UP:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y_move = -0</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if event.key == pygame.K_DOWN:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y_move = 0</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if event.key == pygame.K_LEFT:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x_move = -0</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if event.key == pygame.K_RIGHT:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x_move = 0</br>
+        </br>
+        def coin():#dessin coin</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;global x_coin, y_coin, x_pos, y_pos,score, u</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;pygame.draw.ellipse(game,yellow2,[x_coin,y_coin,18,20])</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;pygame.draw.ellipse(game,yellow,[x_coin,y_coin,16,18])</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if y_coin-size&lt;y_pos&lt;y_coin+20 and x_coin-size&lt;x_pos&lt;x_coin+18:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x_coin = randint(30,770)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y_coin = randint(30,770)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;score = score+1</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;u = 0</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;son.play()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return score</br>
+        </br>
+        def texts():</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;global score #On va chercher le score</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;font=pygame.font.Font(None,40) #Création de la police</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;scoretext=font.render("SCORE: " + str(score),True,(0,0,0)) #Création du nouveau texte</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;game.blit(scoretext, (650, 435)) #Affichage du texte</br>
+        </br>
+        </br>
+        </br>
+        #--------------------------------------- La boucle</br>
+        while not gameover:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;for event in pygame.event.get():</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if event.type == pygame.QUIT:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gameover = True</br>
+        </br>
+        </br>
+        #//////////// PACMAN</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if act == 0:</br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snake_n_pacman_move()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;game.fill(gray)</br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x_pos = x_pos + x_move</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y_pos = y_pos + y_move</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.ia()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.ia()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall_pm(0, 0, 25, 325) #Gauche</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall_pm(0, 400, 25, 375)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall_pm(0, 0, 350, 25) #Haut</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall_pm(450, 0, 350, 25)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall_pm(775, 0, 25, 325) #Droite</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall_pm(775, 400, 25, 375)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall_pm(0, 775, 350, 25) #Bas</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall_pm(450, 775, 350, 25)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall_pm(100, 100, 200, 25) #Haut gauche haut</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall_pm(100, 125, 25, 100) #Haut gauche bas</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall_pm(675, 125, 25, 100) #Haut droite bas</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall_pm(500, 100, 200, 25) #Haut droite haut</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall_pm(1000, 675, 125, 25) #Bas gauche bas</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall_pm(100, 400, 25, 300) #Bas gauche haut</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall_pm(675, 400, 25, 300) #Bas droite haut</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall_pm(6000, 675, 75, 25) #Bas droite bas</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall_pm(387, 100, 25, 100) #Milieu haut grand</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall_pm(200, 200, 400, 25) #Milieu haut petit</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall_pm(550, 300, 225, 25) #Couloir droite haut</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall_pm(25, 300, 225, 25) #Couloir gauche haut</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall_pm(550, 400, 125, 25) #Couloir droite bas</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall_pm(125, 400, 125, 25) #Couloir gauche bas</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall_pm(450, 500, 125, 25) #Droite bas haut</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall_pm(575, 500, 25, 275) #Droite bas bas</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall_pm(200, 500, 25, 275) #Gauche bas bas</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall_pm(200, 500, 150, 25) #Gauche bas haut</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall_pm(325, 300, 25, 125) #Milieu droite</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall_pm(450, 300, 25, 125) #Milieu gauche</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall_pm(350, 400, 100, 25) #Milieu bas</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall_pm(300, 600, 200, 25) #bas milieu haut</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall_pm(300, 600, 25, 100) #bas milieu bas</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall_pm(475, 600, 25, 100) #bas milieu bas2</br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin1.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin2.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin3.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin4.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin5.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin6.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin7.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin8.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin9.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin10.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin11.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin12.draw()</br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin13.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin14.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin15.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin16.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin17.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin18.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin19.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin20.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin21.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin22.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin23.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin24.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin25.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin26.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin27.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin28.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin29.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin30.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin31.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin32.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin33.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin34.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin35.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin36.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin37.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin38.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin39.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin40.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin41.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin42.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin43.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin44.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin45.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin46.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin47.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin48.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin49.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin50.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin51.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin52.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin53.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin54.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin55.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin56.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin57.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin58.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin59.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin60.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin61.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin62.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin63.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin64.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin65.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin66.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin67.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin68.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin69.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin70.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin71.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin72.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin73.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin74.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin75.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin76.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin77.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin78.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin79.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin80.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin81.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin82.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin83.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin84.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin85.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin86.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin87.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin88.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin89.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin90.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin91.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin92.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin93.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin94.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin95.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin96.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin97.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin98.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin99.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#co()</br>
+        </br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if o &lt; 10:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;perso(x_pos,y_pos,0)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;o = o +1</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif o &lt; 20:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;perso(x_pos,y_pos,1)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;o = o +1</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif o &lt; 30:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;perso(x_pos,y_pos,2)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;o = o +1</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif o &lt; 40:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;perso(x_pos,y_pos,3)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;o = o +1</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;o = 0</br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost1.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ghost2.draw()</br>
+        </br>
+        #//////////// SNAKE</br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;elif act == 1:</br>
+        </br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snake_n_pacman_move()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;game.fill(gray)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin_snake()</br>
+        </br>
+        </br>
+        </br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if o &lt; 10:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;perso_snake(snake_x[0],snake_y[0],0)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;o = o +1</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif o &lt; 20:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;perso_snake(snake_x[0],snake_y[0],1)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;o = o +1</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif o &lt; 30:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;perso_snake(snake_x[0],snake_y[0],2)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;o = o +1</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif o &lt; 40:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;perso_snake(snake_x[0],snake_y[0],3)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;o = o +1</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;o = 0</br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i=len(snake_x)-1</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while i &gt; 0:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  snake_x[i] = snake_x[i-1]</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  snake_y[i] = snake_y[i-1]</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  i=i-1</br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snake_x[0] = snake_x[0] + x_move</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snake_y[0] = snake_y[0] + y_move</br>
+        </br>
+        </br>
+        </br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall_snake(0,0,25,800)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall_snake(0,775,800,25)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall_snake(775,0,25,800)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall_snake(0, 0, 350, 25)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall_snake(450, 0, 350, 25)</br>
+        </br>
+        </br>
+        </br>
+        </br>
+        #//////////// MARIO</br>
+        </br>
+        </br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;elif act == 2:</br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mario_move()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;game.fill(gray)</br>
+        </br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if o &lt; 10:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;perso(x_pos,y_pos,0)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;o = o +1</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif o &lt; 20:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;perso(x_pos,y_pos,1)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;o = o +1</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif o &lt; 30:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;perso(x_pos,y_pos,2)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;o = o +1</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif o &lt; 40:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;perso(x_pos,y_pos,3)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;o = o +1</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;o = 0</br>
+        </br>
+        </br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gravity()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jump()</br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x_pos = x_pos + x_move</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y_pos = y_pos + y_move</br>
+        </br>
+        </br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall_mario(0, 0, 800, 25) #Haut</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall_mario(775, 0, 25, 325) #Droite</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall_mario(775, 400, 25, 375)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall_mario(0, 0, 25, 800)#Gauche</br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall_mario(650, 400, 150, 25)</br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall_mario(575, 675, 450, 200)#Bas</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall_mario(0, 675, 450, 200)</br>
+        </br>
+        </br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall_mario(50, 575, 25, 25)</br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall_mario(150, 475, 200, 25)</br>
+        </br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall_mario(450, 375, 25, 25)</br>
+        </br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall_mario(350, 275, 25, 25)</br>
+        </br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall_mario(525, 200, 200, 25)</br>
+        </br>
+        </br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin100.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin101.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin102.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin103.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin104.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin105.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin106.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin107.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin108.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin109.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin110.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin111.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin112.draw()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin113.draw()</br>
+        </br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;elif act == 3:</br>
+        </br>
+        </br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;game.fill(bleum)</br>
+        </br>
+        </br>
+        </br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y_pos = y_pos + y_move</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x_pos = x_pos + x_move</br>
+        </br>
+        </br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#mainwall</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall(0, 0, 5, 800)#l(coordonnées des murs)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall(0, 0, 800, 5)#t</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall(795, 0, 5, 800)#r</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall(0, 795, 350, 5)#b1</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall(450, 795, 800, 5)#b2</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#secondwall</br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall(0, 0, 50, 650)#1</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall(50, 700, 50, 100)#2</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall(100, 0, 100, 150)#3</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall(200, 0, 450, 50)#4</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall(250, 100, 100, 150)#5</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall(150, 200, 50, 150)#6</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall(200, 300, 150, 50)#7</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall(300, 350, 50, 100)#8</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall(350, 400, 200, 50)#9</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall(400, 450, 50, 150)#10</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall(450, 550, 50, 50)#11</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall(500, 500, 100, 100)#12</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall(250, 550, 100, 50)#13</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall(150, 400, 100, 100)#14</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall(150, 500, 50, 150)#15</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall(150, 750, 150, 50)#16</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall(150, 700, 50, 50)#17</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall(300, 600, 50, 100)#18</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall(250, 650, 50, 50)#19</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall(350, 650, 200, 50)#20</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall(400, 700, 150, 50)#21</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall(350, 150, 250, 100)#22</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall(400, 250, 50, 100)#23</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall(400, 100, 300, 50)#24</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall(650, 150, 50, 100)#25</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall(750, 50, 50, 150)#26</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall(700, 0, 100, 50)#27</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall(750, 250, 50, 150)#28</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall(600, 500, 200, 100)#29</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall(500, 300, 150, 50)#30</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall(600, 350, 100, 50)#31</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall(600, 400, 50, 100)#32</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall(700, 600, 100, 50)#33</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall(750, 650, 50, 100)#34</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall(600, 600, 50, 150)#35</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall(650, 700, 50, 50)#36</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wall(700, 150, 50, 50)#37</br>
+        </br>
+        </br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;texts()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DKm()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coin()</br>
+        </br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if o &lt; 10:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;perso(x_pos,y_pos,0)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;o = o +1</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif o &lt; 20:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;perso(x_pos,y_pos,1)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;o = o +1</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif o &lt; 30:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;perso(x_pos,y_pos,2)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;o = o +1</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif o &lt; 40:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;perso(x_pos,y_pos,3)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;o = o +1</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;o = 0</br>
+        </br>
+        </br>
+        </br>
+        </br>
+        #//////////// GAME_OVER</br>
+        </br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;elif act == 5:</br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gotxt()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;goscore()</br>
+        </br>
+        </br>
+        </br>
+        #//////////// ALL</br>
+        </br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if u&lt;40:</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;u = u + 1</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;j = (u*5)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color = (0, 255-j, 0)</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scoredyn() #Affichage du score</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;pygame.display.flip() #affichage de la fenêtre</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;mapping()</br>
+        &nbsp;&nbsp;&nbsp;&nbsp;clock.tick(60) #une boucle tout les 60 ticks</br>
+        </br>
+        pygame.quit()</br>
+
+
+
+      </h3>
+    </div>
+
+
+
+  </aside>
+
+
+
+
+
+  <script type="text/javascript" src="code.js"></script>
+</body>
+
+</html>

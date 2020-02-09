@@ -1,0 +1,422 @@
+/*---------------------------------------*/
+/*MAIN*/
+/*---------------------------------------*/
+
+.mobile {
+  display: none;
+}
+
+@font-face {
+  font-family: 'Constantia';
+  src: url('font/Constantia.ttf');
+}
+
+* {
+  font-family: "Constantia";
+  transition: all 1s;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+}
+
+nav {
+  position: fixed;
+  height: 100vh;
+  width: 350px;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  background-color: white;
+  border-right: solid 1px gray;
+}
+
+main {
+  position: absolute;
+  top: 0;
+  left: 350px;
+  z-index: 1;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+}
+
+/*---------------------------------------*/
+/*NAVIGATION-BAR*/
+/*---------------------------------------*/
+nav ul:first-child {
+  margin-top: 30%;
+  margin-bottom: 0;
+  padding: 0;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul ul {
+  overflow-y: auto;
+  max-height: 0;
+  padding-right: 20px;
+  width: 220px;
+  overflow-x: hidden;
+}
+
+nav ul li {
+  display: block;
+  margin: 20px 30px 10px 30px;
+  width: 220px;
+  overflow: hidden;
+}
+
+nav ul li li {
+  overflow: visible;
+}
+
+.folders::before {
+  margin-right: 10px;
+  position: relative;
+  top: 5px;
+}
+
+.folder::before {
+  position: relative;
+  margin-right: 10px;
+  top: -2.5px;
+}
+
+.picture::before {
+  position: relative;
+  margin-right: 10px;
+  top: -2.5px;
+}
+
+.text::before {
+  position: relative;
+  margin-right: 10px;
+  top: -2.5px;
+}
+
+.exe::before {
+  position: relative;
+  margin-right: 10px;
+  top: -2.5px;
+}
+
+.down {
+  max-height: 500px;
+}
+
+.folders {
+  font-size: 20px;
+  padding-left: 5px;
+}
+
+ul a {
+  text-decoration: none;
+  text-transform: uppercase;
+  user-select: none;
+  outline: none;
+}
+
+ul li ul li a {
+  line-height: 20px;
+  font-size: 13px;
+  display: flex;
+}
+
+/*---------------------------------------*/
+/*MAIN*/
+/*---------------------------------------*/
+.home {
+  display: flex;
+  height: 600px;
+  box-shadow: inset 0px 0px 21px 0px rgba(0, 0, 0, 1);
+}
+
+.weird {
+  display: block;
+  margin: 0px 348px 0 -20px;
+  padding: 50px 55px 0px 30px;
+  box-shadow: 10px -10px 15px -9px #000000;
+  transform: skewX(3deg);
+}
+
+.weird:hover {
+  margin-right: 330px;
+}
+
+.unweird {
+  transform: translateX(-7px) skewX(-3deg);
+  padding-left: 40px;
+}
+
+
+#library {
+  max-width: 1030px;
+}
+
+#library li {
+    margin: 2px 25px 2px 0;
+    display: inline-flex;
+    width: 250px;
+}
+
+/*---------------------------------------*/
+/*GENERAL*/
+/*---------------------------------------*/
+
+article, footer {
+  padding: 50px 0 50px 125px;
+  display: flex;
+}
+
+article.title, main footer {
+  padding: 50px 0 50px 40px;
+}
+
+section {
+  position: relative;
+  width: 434px;
+  height: 244px;
+}
+
+section img {
+  height: 100%;
+  width: auto;
+  border-radius: 10px;
+  box-shadow: 0px 0px 22px -15px rgb(0, 0, 0);
+  border: solid 1px #1F2228;
+  transition: opacity .25s;
+}
+
+.digital-art section img {
+  width: 100%;
+  height: 100%;
+}
+
+
+/*---------------------------------------*/
+/*TXT*/
+/*---------------------------------------*/
+
+.footer h3 {
+  border: none;
+}
+
+h1, h2, h4, h6 {
+  border-left: dashed;
+  padding-left: 20px;
+  margin: 0;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: normal;
+}
+
+h3 {
+  font-size: 15px;
+  border: none;
+  margin: 0 0 20px 40px;
+  padding: 0;
+  font-weight: lighter;
+}
+
+h4 {
+  font-size: 15px;
+  margin: 0 0 5px 0;
+  font-weight: lighter;
+}
+
+#library a {
+  padding: 15px 40px 15px 5px;
+  transition: .1s;
+}
+
+
+/*---------------------------------------*/
+/*EXTRA*/
+/*---------------------------------------*/
+
+#sp {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+
+#spp {
+  width: auto;
+  height: 87%;
+}
+
+#sppp {
+  width: 65%;
+  height: auto;
+}
+
+.extra {
+  border-radius: 10px;
+  margin-left: 50px;
+  margin-top: 10px;
+  width: 50px;
+  height: 240px;
+  display: flex;
+  overflow: hidden;
+  transition: all .5s;
+}
+
+.extra::before {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 25%;
+}
+
+.none::before {
+  display: none;
+}
+
+.extra:hover::before {
+  display: none;
+}
+
+.extra img, .extra h2 {
+  display: none;
+}
+
+.extra div {
+  width: 230px;
+  display: flex;
+}
+
+.slide0 {
+  transform: translate(-137%)
+}
+
+.slide1 {
+  transform: translate(-628px);
+}
+
+.extra:hover {
+  width: 230px;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.25) inset;
+}
+
+.extra:hover .none {
+  cursor: default;
+}
+
+.none:hover {
+  width: 50px;
+}
+
+.extra:hover h2 {
+  display: block;
+  margin-right: 50%;
+  margin-top: 45%;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.extra:hover img {
+  display: block;
+  height: 90%;
+  width: auto;
+  margin-top: 5%;
+  margin-left: 30px;
+  border-radius: 10px;
+  margin-top: auto;
+  margin-bottom: auto;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.25);
+}
+
+/*---------------------------------------*/
+/*ASIDE*/
+/*---------------------------------------*/
+
+aside {
+    margin-top: 10px;
+    margin-left: 50px;
+}
+
+.icon-software {
+    margin-left: 40px;
+}
+
+.icon {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+}
+/*---------------------------------------*/
+/*IMAGE*/
+/*---------------------------------------*/
+
+#icon-bar {
+  margin: 40px 0 40px 20px;
+}
+
+.icon {
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+}
+
+/*---------------------------------------*/
+/*DOWNLOAD*/
+/*---------------------------------------*/
+
+.button a, .button h5 {
+  position: absolute;
+  opacity: 0;
+  color: white;
+  text-decoration: none;
+  border: solid 2px white;
+  border-radius: 5px;
+  left: 10%;
+  padding: 10px;
+  transition: all 0.25s;
+  transition-timing-function: ease;
+}
+
+.button .download {
+  bottom: 80%;
+}
+
+.button .video {
+  bottom: 6%;
+}
+
+.button h5 {
+  bottom: 35%;
+  border: none;
+  left: 5%;
+}
+
+section:hover .download {
+  opacity: 1;
+  transform: translate(0, 90%);
+  filter: none;
+}
+
+section:hover .video {
+  opacity: 1;
+  transform: translate(0, -90%);
+}
+
+section:hover h5 {
+  transform: translate(45%, 0);
+  opacity: 1;
+}
+
+section:hover img {
+  opacity: .5;
+}
