@@ -11,23 +11,23 @@ nav {
 /*NAVIGATION-BAR*/
 /*---------------------------------------*/
 .folders::before {
-  content: url(img/img_extension/folder-dark.png);
+  content: url(img/extension/folder-dark.png);
 }
 
 .folder::before {
-  content: url(img/img_extension/folder-dark.png);
+  content: url(img/extension/folder-dark.png);
 }
 
 .picture::before {
-  content: url(img/img_extension/img-dark.png);
+  content: url(img/extension/img-dark.png);
 }
 
 .text::before {
-  content: url(img/img_extension/text-dark.png);
+  content: url(img/extension/text-dark.png);
 }
 
 .exe::before {
-  content: url(img/img_extension/exe-dark.png);
+  content: url(img/extension/exe-dark.png);
 }
 
 ul a:hover {
@@ -38,12 +38,12 @@ ul a:hover {
 /*MAIN*/
 /*---------------------------------------*/
 #home {
-  background: url(img/img_background/me-dark.png) no-repeat right;
+  background: url(img/background/me-dark.png) no-repeat right;
   background-size: contain;
 }
 
 #draw_home {
-  background: url(img/img_background/draws-dark.png) no-repeat right;
+  background: url(img/background/draws-dark.png) no-repeat right;
   background-size: contain;
 }
 
@@ -89,7 +89,7 @@ h2 span, footer h3 {
 }
 
 .extra::before {
-  content: url(img/img_extension/more-dark.png);
+  content: url(img/extension/more-dark.png);
 }
 
 .extra:hover .none {
