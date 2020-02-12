@@ -1,2 +1,2 @@
 # Yxmna.github.io
- my website <3
+- [Jump to my website](http://Yxmna.github.io)
