@@ -3,11 +3,7 @@
       "name": "art",
       "apps": [{
         "name": "images",
-<<<<<<< Updated upstream
-        "icon": "./icons/app/images.png"
-=======
         "icon": "./icons/app/images.svg"
->>>>>>> Stashed changes
       }]
     },
 

@@ -1,16 +1,5 @@
 {
   "files": {
-<<<<<<< Updated upstream
-    "main.css": "/static/css/main.c2e9c62e.css",
-    "main.js": "/static/js/main.eacc0573.js",
-    "static/media/me-dark.png": "/static/media/me-dark.adbab0eb83f05ed67d2d.png",
-    "index.html": "/index.html",
-    "main.c2e9c62e.css.map": "/static/css/main.c2e9c62e.css.map",
-    "main.eacc0573.js.map": "/static/js/main.eacc0573.js.map"
-  },
-  "entrypoints": [
-    "static/css/main.c2e9c62e.css",
-=======
     "main.css": "/static/css/main.a15192da.css",
     "main.js": "/static/js/main.eacc0573.js",
     "static/media/me-dark.png": "/static/media/me-dark.adbab0eb83f05ed67d2d.png",
@@ -20,7 +9,6 @@
   },
   "entrypoints": [
     "static/css/main.a15192da.css",
->>>>>>> Stashed changes
     "static/js/main.eacc0573.js"
   ]
 }
