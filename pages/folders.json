@@ -2,16 +2,14 @@
   "folders": [{
       "name": "art",
       "apps": [{
-        "name": "images",
-        "icon": "./icons/app/images.svg"
+        "name": "images"
       }]
     },
 
     {
       "name": "misc",
       "apps": [{
-        "name": "cursors",
-        "icon": "./icons/app/cursors.svg"
+        "name": "cursors"
       }]
     },
 
@@ -24,8 +22,7 @@
           "name": "websites"
         },
         {
-          "name": "extensions",
-          "icon": "./icons/app/extensions.svg"
+          "name": "extensions"
         }
       ]
     },
