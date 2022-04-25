@@ -3,14 +3,19 @@
       "name": "art",
       "apps": [{
         "name": "images",
+<<<<<<< Updated upstream
         "icon": "./icons/app/images.png"
+=======
+        "icon": "./icons/app/images.svg"
+>>>>>>> Stashed changes
       }]
     },
 
     {
       "name": "misc",
       "apps": [{
-        "name": "cursors"
+        "name": "cursors",
+        "icon": "./icons/app/cursors.svg"
       }]
     },
 
@@ -23,7 +28,8 @@
           "name": "websites"
         },
         {
-          "name": "extensions"
+          "name": "extensions",
+          "icon": "./icons/app/extensions.svg"
         }
       ]
     },
@@ -32,7 +38,8 @@
       "name": "discord",
       "apps": [{
         "name": "akume",
-        "url": "https://yxmna.github.io/Akume-BOT/"
+        "url": "https://yxmna.github.io/Akume-BOT/",
+        "icon": "https://cdn.discordapp.com/avatars/613486608624254986/b5570691b8979be00a8ea8e38f1525cd.webp"
       }]
     }
 
