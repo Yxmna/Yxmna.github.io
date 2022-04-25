@@ -3,7 +3,7 @@
       "name": "art",
       "apps": [{
         "name": "images",
-        "icon": "https://developer.apple.com/design/human-interface-guidelines/ios/images/icons/app_icons/Photos.png"
+        "icon": "./icons/app/images.png"
       }]
     },
 
@@ -17,7 +17,7 @@
     {
       "name": "list",
       "apps": [{
-          "name": "solftwares"
+          "name": "softwares"
         },
         {
           "name": "websites"
