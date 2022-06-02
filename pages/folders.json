@@ -35,7 +35,7 @@
         "icon": "./pages/other_icons/stickers.svg"
       },{
         "name": "collections",
-        "url": "https://yxmna.github.io/funko-collection/",
+        "url": "https://yxmna.github.io/funko/",
         "icon": "./pages/other_icons/collections.svg"
       }
     ]
