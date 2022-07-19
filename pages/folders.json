@@ -1,5 +1,7 @@
 {
-  "folders": [{
+  "folders": [
+    
+    {
       "name": "art",
       "apps": [{
         "name": "images"
@@ -40,12 +42,21 @@
       }
     ]
     },
+    
     {
       "name": "discord",
       "apps": [{
         "name": "akume",
         "url": "https://yxmna.github.io/Akume-BOT/",
         "icon": "https://cdn.discordapp.com/avatars/613486608624254986/b5570691b8979be00a8ea8e38f1525cd.webp"
+      }]
+    },
+    
+    {
+      "name": "fortnite",
+      "apps": [{
+        "name": "fortnite shop",
+        "url": "https://yxmna.github.io/fortnite-shop/",
       }]
     }
 
