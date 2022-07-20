@@ -1,4 +1,4 @@
-title=Softwares
+title=Games
 description=All the games I play
 
 ---
@@ -9,6 +9,8 @@ name=Minecraft
 type=game
 description=Pseudo: Yomna
 homepage=https://www.minecraft.net/fr-fr
+icon=https://www.minecraft.net/etc.clientlibs/minecraft/clientlibs/main/resources/android-icon-192x192.png
+download=https://launcher.mojang.com/download/MinecraftInstaller.msi
 
 ---
 
