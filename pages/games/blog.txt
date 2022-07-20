@@ -1,0 +1,23 @@
+title=Softwares
+description=All the games I play
+
+---
+
+title=PC
+
+name=Minecraft
+type=game
+description=Pseudo: Yomna
+homepage=https://www.minecraft.net/fr-fr
+
+---
+
+title=Mobile
+
+name=Clash Royal
+type=game
+description=Pseudo: Yomna, ID: #QL0J8LR
+
+name=Clash of Clan
+type=game
+description=Pseudo: Yomna, ID: #LYG8ROYY
