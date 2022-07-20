@@ -6,7 +6,7 @@ description=All the games I play
 title=PC
 
 name=Minecraft
-type=game
+type=software
 description=Pseudo: Yomna
 homepage=https://www.minecraft.net/fr-fr
 icon=https://www.minecraft.net/etc.clientlibs/minecraft/clientlibs/main/resources/android-icon-192x192.png
@@ -17,9 +17,13 @@ download=https://launcher.mojang.com/download/MinecraftInstaller.msi
 title=Mobile
 
 name=Clash Royal
-type=game
+type=software
 description=Pseudo: Yomna, ID: #QL0J8LR
+homepage=https://supercell.com/en/games/clashroyale/
+icon=https://www.freeiconspng.com/uploads/high-resolution-clash-royale-png-icon-21.png
 
 name=Clash of Clan
-type=game
+type=software
 description=Pseudo: Yomna, ID: #LYG8ROYY
+homepage=https://supercell.com/en/games/clashofclans/
+icon=https://www.nicepng.com/png/detail/84-844433_clash-of-clans-logo-clash-of-clans-logo.png
